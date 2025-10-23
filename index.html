@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تصنيفات NMA Stores — Dropdown RTL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Tajawal", sans-serif; background:#fafafa; }
+
+    /* Base submenu (first-level) - hidden by default but animatable */
+    .submenu {
+      position: absolute;
+      right: 0;
+      margin-top: 0.5rem;
+      width: 14rem; /* w-56 */
+      background: #ffffff;
+      border-radius: 0.75rem; /* rounded-xl */
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 20px rgba(2,6,23,0.08);
+      padding: 0.35rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 240ms ease, transform 240ms ease, visibility 240ms;
+      z-index: 40;
+    }
+
+    /* Show first-level on hover of the group */
+    .group:hover > .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Menu links inside dropdown */
+    .menu-item {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #1f2937; /* gray-800 */
+      text-decoration: none;
+      transition: background-color 150ms ease, color 150ms ease;
+    }
+    .menu-item:hover {
+      background: #f3f4f6; /* gray-100 */
+      color: #000;
+    }
+
+    /* Submenu-left (second-level) - hidden by default and positioned to the left (RTL) */
+    .submenu-left {
+      position: absolute;
+      top: 0;
+      right: 100%;     /* place to the left of parent submenu */
+      margin-right: 0.5rem; /* gap between boxes */
+      width: 13rem;    /* w-48 */
+      background: #fff;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 18px rgba(2,6,23,0.06);
+      padding: 0.25rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(8px);
+      transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+      z-index: 50;
+      pointer-events: none; /* prevents hover flicker when hidden */
+    }
+
+    /* When hovering the parent li (.group), show its .submenu-left */
+    .group:hover > .submenu-left {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    /* Support nested groups inside first-level submenu (each nested li is also .group) */
+    .submenu .group:hover > .submenu-left {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .space-between {
+        justify-content: space-between;
+        display: flex;
+    }
+
+    /* Top nav spacing tweaks */
+    .top-nav > li { margin-inline-start: 0.5rem; margin-inline-end: 0.5rem; } /* space-x-reverse equivalent */
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <header class="bg-white shadow p-4">
+    <h1 class="text-2xl font-bold text-center">تصنيفات NMA</h1>
+  </header>
+
+  <nav class="flex justify-center mt-6">
+    <ul class="flex top-nav" style="list-style:none;padding:0;margin:0;align-items:center;">
+
+      <!-- العناية بالبشرة -->
+      <li class="relative group" style="list-style:none;">
+        <button class="px-4 py-2 font-medium hover:text-green-600 bg-transparent border-0">العناية بالبشرة</button>
+
+        <!-- first-level submenu -->
+        <ul class="submenu" aria-label="القائمة الفرعية للعناية بالبشرة" style="list-style:none;margin:0;padding:0;">
+          <li class="relative group" style="list-style:none;">
+            <a href="#" class="menu-item space-between">تنظيف البشرة<p>+</p></a>
+
+            <!-- second-level submenu (opens to the left) -->
+            <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
+              <li><a href="#" class="menu-item">غسول الوجه</a></li>
+              <li><a href="#" class="menu-item">مزيل المكياج</a></li>
+              <li><a href="#" class="menu-item">تونر</a></li>
+            </ul>
+          </li>
+
+          <li class="relative group" style="list-style:none;">
+            <a href="#" class="menu-item space-between">تنظيف البشرة<p>+</p></a>
+            <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
+              <li><a href="#" class="menu-item">كريمات</a></li>
+              <li><a href="#" class="menu-item">سيرومات</a></li>
+              <li><a href="#" class="menu-item">زيوت</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#" class="menu-item">علاج البشرة</a></li>
+          <li><a href="#" class="menu-item">الوقاية من الشمس</a></li>
+        </ul>
+      </li>
+
+      <!-- العناية بالشعر -->
+      <li class="relative group" style="list-style:none;">
+        <button class="px-4 py-2 font-medium hover:text-green-600 bg-transparent border-0">العناية بالشعر</button>
+        <ul class="submenu" style="list-style:none;margin:0;padding:0;">
+          <li><a href="#" class="menu-item">شامبو و بلسم</a></li>
+            <li class="relative group" style="list-style:none;">
+            <a href="#" class="menu-item space-between">صحة الشعر<p>+</p></a>
+
+            <!-- second-level submenu (opens to the left) -->
+            <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
+              <li><a href="#" class="menu-item">ماسكات وكريمات الشعر</a></li>
+              <li><a href="#" class="menu-item">زيوت وسيرومات</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="menu-item">تصفيف الشعر</a></li>
+          <li><a href="#" class="menu-item">صبغات الشعر</a></li>
+          <li><a href="#" class="menu-item">أجهزة وأدوات تصفيف</a></li>
+          <li><a href="#" class="menu-item">إزالة الشعر</a></li>
+        </ul>
+      </li>
+
+
+      <!-- المكياج -->
+    <li class="relative group" style="list-style:none;">
+        <button class="px-4 py-2 font-medium hover:text-green-600 bg-transparent border-0">المكياج والتجميل</button>
+        <ul class="submenu" style="list-style:none;margin:0;padding:0;">
+            <li class="relative group" style="list-style:none;">
+                <a href="#" class="menu-item space-between">الوجه<p>+</p></a>
+
+                <!-- second-level submenu (opens to the left) -->
+                <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
+                    <li><a href="#" class="menu-item">باودر</a></li>
+                    <li><a href="#" class="menu-item">كونتور</a></li>
+                </ul>
+            </li>
+            
+            <li class="relative group" style="list-style:none;">
+                <a href="#" class="menu-item space-between">العيون<p>+</p></a>
+
+                <!-- second-level submenu (opens to the left) -->
+                <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
+                    <li><a href="#" class="menu-item">ماسكارا</a></li>
+                    <li><a href="#" class="menu-item">ظلال</a></li>
+                    <li><a href="#" class="menu-item">آيلاينر</a></li>
+                </ul>
+            </li>
+
+            <li class="relative group" style="list-style:none;">
+                <a href="#" class="menu-item space-between">الشفاه<p>+</p></a>
+
+                <!-- second-level submenu (opens to the left) -->
+                <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
+                    <li><a href="#" class="menu-item">أحمر الشفاه</a></li>
+                    <li><a href="#" class="menu-item">ملمع</a></li>
+                    <li><a href="#" class="menu-item">مقشر شفاه</a></li>
+                    <li><a href="#" class="menu-item">مرطبات</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="menu-item">طلاء أظافر</a></li>
+            <li><a href="#" class="menu-item">أدوات المكياج</a></li>
+
+        </ul>
+    </li>
+
+      <!-- العناية بالجسم -->
+      <li class="relative group" style="list-style:none;">
+        <button class="px-4 py-2 font-medium hover:text-green-600 bg-transparent border-0">العناية بالجسم والأظافر</button>
+        <ul class="submenu" style="list-style:none;margin:0;padding:0;">
+          <li><a href="#" class="menu-item">ترطيب الجسم</a></li>
+          <li><a href="#" class="menu-item">تفتيح وتوحيد لون الجسم</a></li>
+          <li><a href="#" class="menu-item">صحة اليدين والأظافر</a></li>
+          <li><a href="#" class="menu-item">العناية بالقدمين</a></li>
+          <li><a href="#" class="menu-item">العناية بالفم</a></li>
+        </ul>
+      </li>
+
+      <!-- العطور والروائح -->
+      <li class="relative group" style="list-style:none;">
+        <button class="px-4 py-2 font-medium hover:text-green-600 bg-transparent border-0">العطور والروائح</button>
+        <ul class="submenu" style="list-style:none;margin:0;padding:0;">
+          <li><a href="#" class="menu-item">عطور نسائية</a></li>
+          <li><a href="#" class="menu-item">عطور رجالية</a></li>
+          <li><a href="#" class="menu-item">مزيل العرق و البخاخ</a></li>
+          <li><a href="#" class="menu-item">أطقم وهدايا العطور</a></li>
+          <li><a href="#" class="menu-item">لوشن معطر</a></li>
+        </ul>
+      </li>
+
+      <!-- العائلة و الصحة -->
+      <li class="relative group" style="list-style:none;">
+        <button class="px-4 py-2 font-medium hover:text-green-600 bg-transparent border-0">العائلة و الصحة</button>
+        <ul class="submenu" style="list-style:none;margin:0;padding:0;">
+          <li><a href="#" class="menu-item">العناية بالرجل</a></li>
+          <li><a href="#" class="menu-item">العناية بالطفل</a></li>
+          <li><a href="#" class="menu-item">منتجات النظافة الشخصية</a></li>
+          <li><a href="#" class="menu-item">المكملات الغذائية</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- small note -->
+  <div class="max-w-3xl mx-auto mt-8 text-center text-sm text-gray-500 px-4">
+    <p>الصفحة لتوضيح التصنيفات فقط لا غير</p>
+  </div>
+
+</body>
+</html>
