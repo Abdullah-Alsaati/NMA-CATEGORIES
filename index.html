@@ -89,6 +89,36 @@
 
     /* Top nav spacing tweaks */
     .top-nav > li { margin-inline-start: 0.5rem; margin-inline-end: 0.5rem; } /* space-x-reverse equivalent */
+
+    /* Third-level submenu (submenu-left-2) */
+.submenu-left-2 {
+  position: absolute;
+  top: 0;
+  right: 100%; /* open further to the left */
+  margin-right: 0.5rem;
+  width: 12rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 18px rgba(2,6,23,0.06);
+  padding: 0.25rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(8px);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Show the third level when hovering over its parent li */
+.submenu-left .group:hover > .submenu-left-2 {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+
   </style>
 </head>
 <body class="text-gray-800">
