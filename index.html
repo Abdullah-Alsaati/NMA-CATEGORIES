@@ -91,32 +91,32 @@
     .top-nav > li { margin-inline-start: 0.5rem; margin-inline-end: 0.5rem; } /* space-x-reverse equivalent */
 
     /* Third-level submenu (submenu-left-2) */
-.submenu-left-2 {
-  position: absolute;
-  top: 0;
-  right: 100%; /* open further to the left */
-  margin-right: 0.5rem;
-  width: 12rem;
-  background: #fff;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 8px 18px rgba(2,6,23,0.06);
-  padding: 0.25rem 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(8px);
-  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
-  z-index: 60;
-  pointer-events: none;
-}
+    .submenu-left-2 {
+      position: absolute;
+      top: 0;
+      right: 100%; /* open further to the left */
+      margin-right: 0.5rem;
+      width: 12rem;
+      background: #fff;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 18px rgba(2,6,23,0.06);
+      padding: 0.25rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(8px);
+      transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+      z-index: 60;
+      pointer-events: none;
+    }
 
-/* Show the third level when hovering over its parent li */
-.submenu-left .group:hover > .submenu-left-2 {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-  pointer-events: auto;
-}
+    /* Show the third level when hovering over its parent li */
+    .submenu-left .group:hover > .submenu-left-2 {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
 
 
   </style>
@@ -144,8 +144,9 @@
               <li><a href="#" class="menu-item">شامبو وبلسم</a></li>
               <li><a href="#" class="menu-item">صحة الشعر</a></li>
               <li><a href="#" class="menu-item">تصفيف الشعر</a></li>
-              <li><a href="#" class="menu-item">صبغات الشعر</a></li>
-              <li><a href="#" class="menu-item">أجهزة وأدوات تصفيف</a></li>
+              <li><a href="#" class="menu-item">صبغات الشعر و مزيلاتها</a></li>
+              <li><a href="#" class="menu-item">أجهزة تصفيف</a></li>
+              <li><a href="#" class="menu-item">أدوات تصفيف</a></li>
               <li><a href="#" class="menu-item">إزالةالشعر</a></li>
             </ul>
           </li>
@@ -167,7 +168,16 @@
             <!-- second-level submenu (opens to the left) -->
             <ul class="submenu-left" style="list-style:none;margin:0;padding:0;">
               <li><a href="#" class="menu-item">تفتيح وتوحيد اللون</a></li>
-              <li><a href="#" class="menu-item">تنظيف الوجه</a></li>
+              <li class="relative group" style="list-style:none;">
+                <a href="#" class="menu-item space-between">تنظيف الوجه<p>+</p></a>
+
+                <!-- Third-level submenu -->
+                <ul class="submenu-left-2" style="list-style:none;margin:0;padding:0;">
+                  <li><a href="#" class="menu-item">غسول</a></li>
+                  <li><a href="#" class="menu-item">صابون</a></li>
+                  <li><a href="#" class="menu-item">مزيلات المكياج</a></li>
+                </ul>
+              </li>
               <li><a href="#" class="menu-item">ترطيب و تغذية</a></li>
               <li><a href="#" class="menu-item">مقاومة الشيخوخة وعلامات التقدم</a></li>
               <li><a href="#" class="menu-item">أقنعة ومقشرات</a></li>
